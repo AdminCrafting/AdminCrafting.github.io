@@ -5,8 +5,6 @@ author: P@
 date: 2024-05-06 12:50:00 +1000
 categories: [Deployment Tools]
 tags: [Deploy]
----
-
 image:
   path: https://plus.unsplash.com/premium_photo-1669562725515-5a63ae6c8ebc?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
   lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
@@ -21,7 +19,6 @@ image:
 
 ## Paragraph
 
-
 Select a deployment tool based on requirements: 
 
 1. In a scenario where a company needs to deploy Windows updates to a large fleet of devices efficiently, they might choose to use Microsoft Endpoint Configuration Manager (formerly SCCM) due to its robust patch management capabilities and centralized control over deployments. 
@@ -33,7 +30,6 @@ Select a deployment tool based on requirements:
  
 
 3. A medium-sized organization with a focus on standardization and centralized management of IT resources chooses Microsoft Deployment Toolkit (MDT) as its deployment tool. MDT offers advanced customization options and integration with Windows Deployment Services (WDS), allowing the organization to create standardized Windows images and automate deployment tasks efficiently while maintaining full control over the process. 
-
 
 
 ## Video
