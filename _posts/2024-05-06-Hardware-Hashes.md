@@ -41,5 +41,5 @@ Select a deployment tool based on requirements:
 
 How to add an image:
 
-![Picture](/assets/Gallery/Autopilot_Workflow.png/)
+![Picture](/assets/Gallery/Autopilot.png/)
 
