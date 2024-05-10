@@ -36,3 +36,10 @@ Select a deployment tool based on requirements:
 
 {% include embed/youtube.html id='vAxz69PGHFM' %}
 
+
+      testing testing tits
+
+How to add an image:
+
+![Plug](/assets/Gallery/Autopilot%20Workflow.jpeg/)
+
