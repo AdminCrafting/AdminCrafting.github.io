@@ -43,3 +43,4 @@ How to add an image:
 
 ![Picture](/assets/images/Autopilot.png)
 
+<img src="/assets/images/Autopilot.png" alt="">
