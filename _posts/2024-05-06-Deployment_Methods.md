@@ -1,10 +1,10 @@
 ---
-title: Windows Deployment
+title: 1.1 Windows Deployment Preparation 
 description: Examples of Deployment and more.
 author: P@
 date: 2024-05-06 12:50:00 +1000
 categories: [Deployment Tools]
-tags: [Deploy]
+tags: [Windows Deployment Methods]
 image: 
   #path: https://plus.unsplash.com/premium_photo-1669562725515-5a63ae6c8ebc?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
   #lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
@@ -17,6 +17,8 @@ image:
 
 <!-- markdownlint-restore -->
 ![Desktop View](/assets/Blog Post 1/Main.png){: width="300" height="330" }
+
+---
 
 ## Methods of Deployment and Configuration of Windows: 
 
@@ -55,68 +57,27 @@ Examples:
 
 - A company chooses to activate their Windows 10 devices using subscription-based activation through Microsoft 365 E3 or E5 licenses, ensuring seamless licensing management and access to premium features such as Windows Virtual Desktop and Microsoft Defender Advanced Threat Protection. 
 
+---
+
+### Deployment Classes: 
 
 | Class              | Description  
 | -------------------|      
 | Legacy             | Outdated methods that are still in use due to existing infrastructure or compatibility reasons.   
 |--------------------|
-| Modern             | Methods that leverage cloud-based technologies and modern management approaches for streamlined 
-|                    | deployment and management. 
+| Modern             | Methods that leverage cloud-based technologies and modern management approaches for 
+|                    | streamlined  deployment and management. 
 |--------------------|       
-| Hybrid             | Methods that combine traditional and modern approaches, often integrating on-premises infrastructure 
-|                    | with cloud-based services for flexibility and scalability. 
+| Hybrid             | Methods that combine traditional and modern approaches, often integrating on-premises  
+|                    | infrastructure with cloud-based services for flexibility and scalability. 
 |--------------------|                                       
 | Traditional        | Methods that follow conventional practices and are commonly used in legacy environments. 
 
 
-| Type                    | Class         | Description                                       | 
-| -------------------     | ------------- |-------------------------------------------------  |
-| Windows Autopilot       | Modern        | Transform an existing Windows 11 installation,    |
-|                         |               | join the device to Azure AD, and enroll it into   |
-|                         |               | a Mobile Device Management solution to complete   |
-|                         |               | the configuration.                                |
-|--------------------     |-------------- |-------------------------------------------------  |
-| Windows 11 Subscription | Modern        | Upgrade the Windows edition seamlessly without    | 
-|                         |               | requiring intervention or rebooting of the        |
-|                         |               | device.                                           |   
-|-------------------------------------------------------------------------------------------- |   
-| Azure AD / MDM          | Modern        | Cloud-based identity and management solution      |
-|                         |               | offering device, app, and security configuration. | 
-|-------------------------------------------------------------------------------------------- |
-| Provisioning packages   | Modern        | Small distributable .appx files that securely     |
-|                         |               | transform devices to meet organizational          |
-|                         |               | requirements.                                     |
-|-------------------------|---------------|---------------------------------------------------|                               
-| In-place upgrade        | Traditional   | Upgrade an earlier version of Windows to Windows  |
-|                         |               | 10 while retaining all apps, user data, and       |
-|                         |               | settings.                                         |
-|-------------------------|---------------|---------------------------------------------------|
-| Bare metal              | Hybrid        | Deploy Windows 11 to newly built devices or wipe  | 
-|                         |               | existing devices and deploy fresh Windows 11      |
-|                         |               | images to them.                                   |
-|-------------------------|---------------|---------------------------------------------------|                                          
-| Refresh (wipe and load) | Hybrid        | Re-use existing devices. Retain user state (user  |
-|                         |               | data, Windows, and app settings). Wipe devices,   |
-|                         |               | deploy Windows 11 images to them, and finally,    |
-|                         |               | restore the user state.                           |                           
-|-------------------------|---------------|---------------------------------------------------|
-| Replace                 | Hybrid        | Purchase new devices. Back up the user state from |
-|                         |               | the current device. Transform or wipe a           |
-|                         |               | pre-installed Windows 11 installation and restore |
-|                         |               | the user state.                                   |
-|-------------------------|---------------|---------------------------------------------------|                                                                                 
+<img src="/assets/Blog Post 1/Methods1.png" alt=""> 
+<img src="/assets/Blog Post 1/Methods2.png" alt=""> 
 
-#### Examples 
-
-   Windows Auto Pilot - Setting up a new employee's laptop by automatically configuring Windows 11 and joining it to Azure AD. 
-   Windows 11 subscription activation - Upgrading from Windows 11 Home to Windows 11 Pro using a subscription license. 
-   Azure AD / MDM - Managing company smartphones and tablets through Azure AD and Intune. 
-   Provisioning packages - Applying standardized settings and apps to new Windows 11 devices using provisioning packages. 
-   In-place upgrade - Upgrading a computer from Windows 10 to Windows 11 without losing any installed applications or files. 
-   Bare metal - Installing Windows 11 on a brand-new computer or reinstalling Windows 11 on an existing one. 
-   Refresh (wipe and load) - Refreshing an employee's laptop by wiping it, installing a clean copy of Windows 11, and restoring their data. 
-   Replace - Upgrading to new computers and transferring user data and settings from the old devices to the new ones. 
-
+---
 
 ## Dynamic Provisioning 
 
@@ -137,6 +98,135 @@ A company implements a bring-your-own-device (BYOD) policy, allowing employees t
   - Once signed in, the devices are automatically joined to Azure AD and enrolled into the organization's Mobile Device Management (MDM) solution, such as Microsoft Intune. 
   - MDM then configures the devices according to the organization's policies, such as enforcing encryption, applying security settings, and deploying business applications. 
 
+**In order to get these benefits the following requirements must me be met:**
 
-<span style="color:yellow">*Examples of Utilizing Provisioning Packages*</span>.
+1. Windows 11 Pro or Windows 11 Enterprise
+2. Azure AD for identity management
+3. A MDM solution, such as Microsoft Intune
+
+---
+
+#### Autopilot End-User Driven Deployments:
+
+With Windows Autopilot, users receive new devices from OEMs or central IT. Once signed in, device profiles are deployed, configuring devices and enrolling them with 
+Azure AD and Intune. Users initiate Autopilot, which is ideal for remote users or replacement devices.
+
+<span style="color:red">*Autopilot Benefits and Overview*</span>.
+<img src="/assets/Blog Post 1/Autopilot-Dep-Overview.png" alt=""> 
+
+
+<img src="/assets/Blog Post 1/Autopilot-Process.png" alt=""> 
+
+---
+
+<span style="color:red">*Examples of Utilizing Provisioning Packages*</span>.
 <img src="/assets/Blog Post 1/Provisioning-Chart.png" alt=""> 
+
+
+<span style="color:red"></span>
+<img src="/assets/Blog Post 1/P-Chart-Usage.png" alt=""> 
+
+---
+#### Implementing MDT as a Deployment Stategy For an On-prem environment:
+
+> Combine MDT with Configuration manager to implement ZTI.
+{: .prompt-tip }
+
+List the requirements for MDT:
+<ul>
+  <li>ADDS</li>
+  <li>A windows Server</li>
+  <li>Windows ADK</li>
+</ul>
+
+> Optional: WDS - For Network driven OS deployment to bare-metal devices. 
+{: .prompt-info } 
+> Optional: WSUS - To Manage windows updates during deployment. 
+{: .prompt-info } 
+
+What are the key components of MDT on the Windows Server?
+
+<ul>
+  <li>Boot Images</li>
+  <li>OS Images</li>
+  <li>Applications</li>
+  <li>Drivers</li>
+  <li>Packages</li>
+  <li>Task Sequences</li>
+</ul>
+
+<span style="color:red">*Example of OS being added in MDT*</span>.
+
+<img src="/assets/Blog Post 1/Mworkbench.png" alt=""> 
+
+**When is it not suitable to use MDT as a deployment strategy?**
+
+<ul>
+  <li>If all end-user devices are cloud-managed and there's minimal on-premises infrastructure.</li>
+</ul>
+
+**Example of when MDT would be useful in an organisation for provisioning:**
+
+<img src="/assets/Blog Post 1/MDT.png" alt=""> 
+
+
+**Example of when Autopilot would be useful in an organisation for provisioning:**
+
+<img src="/assets/Blog Post 1/winny.png" alt=""> 
+
+---
+
+## Questions:
+
+##### Q: Why install Windows Config Designer from the Microsoft Store? 
+  <code style="color : blue">A: Because it receives regular updates.</code> 
+  
+##### Q: What makes the Windows Config Designer useful? 
+  <code style="color : blue">A: The use of wizards and simple interface.</code>
+
+##### Q: Why are some provisioning packages protected by encryption/signing? 
+  <code style="color : blue">For remote devices.</code> 
+
+##### Q: How long do bulk tokens embedded inside provisioning packages? 
+ <code style="color : blue">A: One month after creation.</code> 
+
+<code style="color : blue">A: Can be manually set to 180 days.</code> 
+  
+##### Q: What is a provisioning package and what is its purpose?
+  <code style="color : blue">A: A provisioning package is a set of configuration settings for Windows Devices used to modify existing Windows 11 installations and configure their runtime settings.</code> 
+
+##### Q: What software is used to create a provisioning package?  
+  <code style="color : blue">A: Windows Configuration Designer – Which is included in the Windows Assessment & Deployment Kit (ADK).</code>
+
+##### Q: What benefits do provisioning packages offer Administrators?  
+  <code style="color : blue">A: A quick & simplified mechanism to configure devices securely.</code>
+
+##### Q: If a .ppkg has failed what should be done?  
+  <code style="color : blue">A: Use WCD to first inspect the package. Fix the issues and iterate the version number.</code>
+  
+  <code style="color : blue">A: The Windows Performance Recorder can also be used for Advanced Troubleshooting.</code>
+ 
+ [Windows Performance Recorder](https://learn.microsoft.com/en-us/windows-hardware/test/wpt/windows-performance-recorder)
+
+##### Q: What is the key benefit / downside of choosing and image-based method of deployment?  
+  <code style="color : blue">A: Because the deployment (settings,apps,files etc) is completed within one action. Then the device performs the OOBE process
+  and gets enrolled in order to then be managed. The downside is the image is only up to date when its built.</code>
+
+
+##### Q: List Scalable tools that Larger enterprises would use?  
+<code style="color : blue">A: Azure AD join & Automatic MDM enrollment.</code>
+
+<code style="color : blue">A: EndPoint Configuration Manager.</code>
+
+<code style="color : blue">A: MDT.</code>
+
+<code style="color : blue">A: Windows Autopilot.</code>
+
+
+##### Q: What does MDT provide?  
+
+<code style="color : blue">A: A unified collection of tools / related processes to allow IT admins to implement a on-prem deployment solution.</code>
+
+
+--- 
+
