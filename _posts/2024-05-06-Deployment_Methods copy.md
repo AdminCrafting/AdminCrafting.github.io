@@ -1,10 +1,10 @@
 ---
-title: 1.1 Windows Deployment Preparation 
+title: Windows Client Deployment Preparation, Planning & Implementation
 description: Examples of Deployment and more.
 author: P@
-date: 2024-05-06 12:50:00 +1000
+date: 2024-05-14 12:50:00 +1000
 categories: [Deployment Tools]
-tags: [Windows Deployment Methods]
+tags: [Windows Client Deployment Preparation]
 image: 
   #path: https://plus.unsplash.com/premium_photo-1669562725515-5a63ae6c8ebc?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
   #lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
@@ -57,6 +57,67 @@ Examples:
 
 - A company chooses to activate their Windows 10 devices using subscription-based activation through Microsoft 365 E3 or E5 licenses, ensuring seamless licensing management and access to premium features such as Windows Virtual Desktop and Microsoft Defender Advanced Threat Protection. 
 
+Why does Windows 11 require activation?
+
+<ul>
+  <li>To unlock the OS features / comply with licensing requirements.</li> 
+  <li>Recieve updates.</li> 
+  <li>Access all features.</li>
+  <li>Access Support.</li> 
+</ul>
+
+What are the 3 main methods of activation?
+
+<ul>
+  <li>Retail.</li> 
+  <li>OEM.</li> 
+  <li>Microsoft Volume Licensing.</li>
+</ul>
+
+What benefits do Organizations with (EA's) enterprize agreements gain from Volume activation methods?
+
+<ul>
+  <li>Tools and services that allow activations to be automated and deployed at scale.</li> 
+</ul>
+
+State the tools & services used for activation within traditional on-premises domain based environments?
+
+<ul>
+  <li>Active Directory-based activation - uses (ADDS) to store activation objects, devices authenticate to the Active
+  directory domain automatically.</li>
+   <li>Key Management Service (KMS) Which is an automated service hosted on a machine in the domain and all volume editions
+   of windows 11 will periodically connect to the host requesting activation.</li>  
+    <li>Mulitiple activation key (MAK) This allows enterprises to purchase product keys that allow a specific number of Windows 11 
+    devices to become activated from Microsoft activation servers on the internet.</li> 
+</ul>
+
+For devices registered to cloud-based authentication & identity services what is required?
+
+<ul>
+  <li>Azure Active Directory.</li> 
+</ul>
+
+> Subscription Activation allows an organisation's Azure AD tenent to be associated with an existing EA, thus all 
+> valid devices that are connected to that tenent will be automatically activated.
+{: .prompt-tip }
+---
+> Eligible Licences for Subscription Activation: 
+{: .prompt-danger } 
+
+<ul>
+  <li>Devices containing a firmware-embedded activation key</li>
+  <li>Windows 11 Enterprise E3 or E5 obtained from organisations EA</li>
+  <li>Windows 11 Cloud Solution Provider - Use (from one to hundreds of users)</li>
+</ul>
+---
+> Requirements Organisation must meet: 
+{: .prompt-danger } 
+<ul>
+  <li>EA or a MPSA that is associated with the organisations Azure AD tenent.</li>
+  <li>Windows 11 Pro or 11 Enterprise installed on devices to be activated.</li>
+  <li>Azure AD for Identity management.</li>
+  <li>Devices to be Azure AD joined or be members of an AD DS domain that is synced using AD Connect.</li>
+</ul>
 ---
 
 ### Deployment Classes: 
@@ -173,6 +234,42 @@ What are the key components of MDT on the Windows Server?
 **Example of when Autopilot would be useful in an organisation for provisioning:**
 
 <img src="/assets/Blog Post 1/winny.png" alt=""> 
+
+#### Plan Upgrade & Downgrade Paths:
+
+What does the upgrade process consist of?
+
+<ul>
+  <li>Upgrading the OS while retaining the apps, user data and user settings.</li> 
+</ul>
+
+What are the benefits of performing an in place upgrade?
+
+<ul>
+  <li>It's fast, less risk and reliable. Driver and app compatibility issues can also be minimized.</li> 
+</ul>
+
+In a downgrade scenario, all personal data is maintained. Describe what 
+happens if incompatibile applications and settings are detected though?
+
+<ul>
+  <li>They will be removed.</li> 
+</ul>
+
+What is Windows S mode and how can it be upgraded?
+
+<ul>
+  <li>Its a free version, only available in the Windows 11 home edition and can be upgraded with a one-time switch using the Microsoft Store.</li> 
+</ul>
+
+---
+#### Windows Autopilot Deployment Scenarios:
+
+*Windows Autopilot makes setting up new devices simple and automatic by customizing the out-of-box experience (OOBE) and enrolling them into a management tool like Microsoft Intune. Once enrolled in Intune, devices are secured, configured, and managed. If a device is lost or stolen, it can be removed from management or completely wiped remotely.*
+
+
+
+
 
 ---
 
